@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Stats>
+    <Caracteristic type="Fantassin" value="1" number="500"/>
+    <Battle pv="20" armor="0" parry="8" attack="10"/>
+    <Damage numberDice="1" diceType="6" offset="3"/>
+    <Environment preferred="field" hated="mountain" />
+    <Specifics  moral="100" stamina="100" supplying="1000"/>
+</Stats>

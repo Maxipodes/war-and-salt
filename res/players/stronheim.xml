@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Stats>
+    <Caracteristic name="Stronheim" />
+    <Battle pv="1000" armor="5" parry="14" attack="16"/>
+    <Damage numberDice="3" diceType="6" offset="5"/>
+</Stats>
