@@ -7,7 +7,6 @@ import org.dom4j.Element;
  */
 public class UnitParser extends Parser{
 
-
     public UnitParser(String path) {
         super(path);
     }
@@ -22,10 +21,6 @@ public class UnitParser extends Parser{
         return root.attributeValue("type");
     }
 
-    public int getNumber(){
-        Element root = rawData.getRootElement().element("Caracteristic");
-        return Integer.parseInt( root.attributeValue("number"));
-    }
 
     public float getMoral(){
         Element root = rawData.getRootElement().element("Specifics");

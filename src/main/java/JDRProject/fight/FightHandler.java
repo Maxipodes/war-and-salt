@@ -1,6 +1,7 @@
 package JDRProject.fight;
 
 import JDRProject.army.Fightable;
+import JDRProject.xmlParser.Parser;
 
 /**
  * Created by Maxime on 29-10-16.
@@ -31,6 +32,14 @@ public class FightHandler {
         return "Bataille: \n "
                 +attacker +" contre " + defender + "\n"+
                 getDamagesDealed() + "\t\t" + getDeadNumber();
+    }
+
+    public void saveInXML(){
+        Parser parser = defender.getParser();
+        parser.setNumber(defender.getNumber() - deadNumber);
+
+        parser.flush();
+
     }
 
 

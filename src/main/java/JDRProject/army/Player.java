@@ -1,5 +1,6 @@
 package JDRProject.army;
 
+import JDRProject.xmlParser.Parser;
 import JDRProject.xmlParser.PlayerParser;
 
 
@@ -8,21 +9,25 @@ import JDRProject.xmlParser.PlayerParser;
  */
 public class Player extends Fightable {
 
+    public final static String fightableType = "joueur";
+
+    private PlayerParser parser;
     private String name;
 
     public Player(String xmlPath) {
         super(new PlayerParser(xmlPath));
-        PlayerParser parser = new PlayerParser(xmlPath);
+
+        this.parser = new PlayerParser(xmlPath);
 
         name = parser.getName();
     }
 
-    @Override
-    public float getNumber() {
-        return 1f;
-    }
-
     public String toString(){
         return name;
+    }
+
+    @Override
+    public Parser getParser() {
+        return parser;
     }
 }

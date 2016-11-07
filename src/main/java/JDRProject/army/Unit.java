@@ -8,9 +8,12 @@ import JDRProject.xmlParser.UnitParser;
  */
 public class Unit extends Fightable {
 
+    public static final String fightableType = "unitée";
+
+    private UnitParser parser;
     private String type;
     private int value ;
-    private int number;
+    private float number;
     private Environment preferredEnvironment;
     private Environment hatedEnvironnement;
     private float moral;
@@ -18,9 +21,9 @@ public class Unit extends Fightable {
     private int supplying;
 
     public Unit(String xmlPath) {
-        super( new UnitParser(xmlPath));
+        super(new UnitParser(xmlPath));
 
-        UnitParser parser = new UnitParser(xmlPath);
+        parser = new UnitParser(xmlPath);
 
         type = parser.getType();
         value = parser.getValue();
@@ -35,21 +38,18 @@ public class Unit extends Fightable {
     @Override
     public int attack(Fightable defender) {
         int totalDamages = 0;
-        for(int i=0; i<number; i++){
+        for(int i=0; i<Math.ceil(number); i++){
              totalDamages += super.attack(defender);
         }
         return totalDamages;
-    }
-
-    @Override
-    public float getNumber() {
-        return number;
     }
 
     public String toString(){
         return number+" "+type+" de valeur "+value;
     }
 
-
-
+    @Override
+    public UnitParser getParser() {
+        return parser;
+    }
 }

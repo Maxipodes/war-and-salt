@@ -10,13 +10,17 @@ import java.util.Random;
  */
 public abstract class Fightable {
 
-    protected static final int MAXIMUM_STAT_VALUE = 20;
+    public static final int MAXIMUM_STAT_VALUE = 20;
 
     protected int pv;
     protected int armor;
     protected int parry;
     protected int attack;
     protected Damage damage;
+    protected float number;
+
+    protected int attackBonus;
+    protected int defenseBonus;
 
 
     public Fightable(Parser parser){
@@ -24,20 +28,23 @@ public abstract class Fightable {
         armor = parser.getArmor();
         parry = parser.getParry();
         attack = parser.getAttack();
+        number = parser.getNumber();
 
         int[] tabDamage = parser.getDamages();
         damage = new Damage(tabDamage[0], tabDamage[1], tabDamage[2]);
 
+        attackBonus = 0;
+        defenseBonus = 0;
     }
 
-    public boolean isParrySucced(){
+    protected boolean isParrySucced(){
         Random rand = new Random();
-        return rand.nextInt(MAXIMUM_STAT_VALUE-1)+1 <= parry;
+        return rand.nextInt(MAXIMUM_STAT_VALUE-1)+1 <= (parry + defenseBonus );
     }
 
-    public boolean isAttackSucced(){
+    protected boolean isAttackSucced(){
         Random rand = new Random();
-        return rand.nextInt(MAXIMUM_STAT_VALUE-1)+1 <= attack;
+        return rand.nextInt(MAXIMUM_STAT_VALUE-1)+1 <= (attack + attackBonus );
     }
 
     public int attack(Fightable defender){
@@ -57,9 +64,23 @@ public abstract class Fightable {
         return armor;
     }
 
-    public abstract float getNumber();
+    public float getNumber(){
+        return number;
+    }
 
     public int getPv() {
         return pv;
     }
+
+
+    public void setAttackBonus(int attackBonus) {
+        this.attackBonus = attackBonus;
+    }
+
+    public void setDefenseBonus(int defenseBonus) {
+        this.defenseBonus = defenseBonus;
+    }
+
+
+    public  abstract Parser getParser();
 }
