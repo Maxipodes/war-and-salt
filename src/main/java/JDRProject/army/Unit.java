@@ -8,7 +8,7 @@ import JDRProject.xmlParser.UnitParser;
  */
 public class Unit extends Fightable {
 
-    public static final String fightableType = "unitée";
+    public static final String fightableType = "unitee";
 
     private UnitParser parser;
     private String type;

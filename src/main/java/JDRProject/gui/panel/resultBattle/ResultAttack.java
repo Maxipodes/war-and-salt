@@ -19,6 +19,6 @@ public class ResultAttack extends JPanel {
     }
 
     public void setDamageDealed(int damagesDealed) {
-        damage.setText(" Dégats causés: " + damagesDealed);
+        damage.setText(" Degats causes: " + damagesDealed);
     }
 }

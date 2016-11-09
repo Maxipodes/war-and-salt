@@ -58,13 +58,18 @@ public class FightWindow extends JFrame implements ActionListener{
 
         isReady = true;
 
+        masterPanel.add(resultPanel, BorderLayout.SOUTH);
         masterPanel.add(battlePanel, BorderLayout.NORTH);
         masterPanel.add(fightButton, BorderLayout.CENTER);
-        masterPanel.add(resultPanel, BorderLayout.SOUTH);
+
+        attackerPanel.setPreferredSize(new Dimension(getWidth() / 2 - 10, getHeight() * 2 / 5));
+        defenderPanel.setPreferredSize(new Dimension(getWidth() / 2 - 10, getHeight() * 2 / 5));
+        resultAttack.setPreferredSize(new Dimension(getWidth() / 2 - 10, getHeight() * 2 / 5));
+        resultDefense.setPreferredSize(new Dimension(getWidth() / 2 - 10, getHeight() * 2 / 5));
 
         add(masterPanel);
 
-        validate();
+        revalidate();
     }
 
     public void validate(){
